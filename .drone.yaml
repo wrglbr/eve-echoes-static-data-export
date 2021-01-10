@@ -22,7 +22,7 @@ steps:
     EVE_XAPK_URL:
       from_secret: eve_xapk_url
   commands:
-  - wget "$${EVE_XAPK_URL}" -O /tmp/eve.xapk
+  - wget -v "$${EVE_XAPK_URL}" -O /tmp/eve.xapk
 
 - name: dump_static
   image: cookiemagic/evee-tools
