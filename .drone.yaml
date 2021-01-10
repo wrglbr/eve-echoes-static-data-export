@@ -41,6 +41,7 @@ steps:
     path: /tmp
   commands:
   - mkdir -p /tmp/npk
+  - mkdir -p /tmp/eve.xapk
   - unzip /tmp/eve.xapk -d /tmp/eve.xapk
   - unzip /tmp/eve.xapk/Android/obb/com.netease.eve.en/com.netease.eve.en.obb /tmp/npk
   - mv /tmp/npk/*.npk /data/npk
