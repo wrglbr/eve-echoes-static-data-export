@@ -42,7 +42,7 @@ steps:
   - mkdir -p /tmp/eve
   - unzip /tmp/eve.xapk -d /tmp/eve
   - unzip /tmp/eve/Android/obb/com.netease.eve.en/main.57.com.netease.eve.en.obb
-  - mv /tmp/eve/Android/obb/com.netease.eve.en/main.57.com.netease.eve.en/*.npk /data/npk
+  - find /tmp/eve/Android/obb/com.netease.eve.en/main.57.com.netease.eve.en -type f -name "*.npk" -exec mv {} /data/npk \;
 
 - name: clone_npk_tool
   image: alpine/git
@@ -56,8 +56,8 @@ steps:
     path: /data
   commands:
   - mkdir -p /data/ktx
-  - cargo install --path .
-  - npktool x /data/npk/*.npk
+  - cargo install --path .  
+  - find /data/npk -type f -name "*.npk" -exec npktool x {} \;
   - mv out /data/ktx
 
 - name: convert_ktx_to_png
