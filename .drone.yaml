@@ -2,13 +2,11 @@ kind: pipeline
 type: docker
 name: default
 
-
 volumes:
 - name: data
   temp: {}
 - name: tmp
   temp: {}
-
 
 steps:
 - name: download_xapk
