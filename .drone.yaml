@@ -49,7 +49,7 @@ steps:
 - name: clone_npk_tool
   image: alpine/git
   commands:
-  - git clone https://github.com/xforce/neox-tools.git .
+  - git clone https://github.com/xforce/neox-tools.git /tmp/neox-tools
 
 - name: extract_ktx
   image: rust
@@ -58,6 +58,7 @@ steps:
     path: /data
   commands:
   - mkdir -p /data/ktx
+  - cd /tmp/neox-tools
   - cargo install --path .  
   - find /data/npk -type f -name "*.npk" -exec npktool x {} \;
   - mv out /data/ktx
