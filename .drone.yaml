@@ -13,10 +13,9 @@ volumes:
 steps:
 - name: download_xapk
   image: plugins/download
-  volume:
+  volumes:
   - name: tmp
     path: /tmp
-  environment:
   settings:
     source: 
       from_secret: eve_xapk_url
@@ -24,7 +23,7 @@ steps:
 
 - name: dump_static
   image: cookiemagic/evee-tools
-  volume:
+  volumes:
   - name: data
     path: /data
   - name: tmp
@@ -35,7 +34,7 @@ steps:
 
 - name: extract_npk
   image: busybox
-  volume:
+  volumes:
   - name: data
     path: /data
   - name: tmp
@@ -53,7 +52,7 @@ steps:
 
 - name: extract_ktx
   image: rust
-  volume:
+  volumes:
   - name: data
     path: /data
   commands:
@@ -64,7 +63,7 @@ steps:
 
 - name: convert_ktx_to_png
   image: madhead/imagemagick
-  volume:
+  volumes:
   - name: data
     path: /data
   commands:
