@@ -5,8 +5,7 @@ name: default
 
 volumes:
 - name: data
-  host:
-    path: $(pwd)/data
+  temp: {}
 - name: tmp
   temp: {}
 
