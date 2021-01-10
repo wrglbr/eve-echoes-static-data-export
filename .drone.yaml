@@ -61,3 +61,12 @@ steps:
   - cargo install --path .
   - npktool x /data/npk/*.npk
   - mv out /data/ktx
+
+- name: convert_ktx_to_png
+  image: madhead/imagemagick
+  volume:
+  - name: data
+    path: /data
+  commands:
+  - mkdir -p /data/png
+  - convert /data/ktx/* /data/png/*.png
