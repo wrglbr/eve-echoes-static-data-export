@@ -28,7 +28,9 @@ steps:
     path: /tmp
   commands:
   - mkdir -p /data/staticdata
-  - sh /opt/cmd.sh dump_static "/tmp/eve.xapk" "/data/staticdata"
+  - export PATH=$PATH:/opt/eve-echoes-tools/scripts
+  - export PATH="$HOME/.cargo/bin:$PATH"
+  - python3 /opt/eve-echoes-tools/scripts/dump_static_data.py /tmp/eve.xapk /data/staticdata
 
 - name: extract_npk
   image: busybox
