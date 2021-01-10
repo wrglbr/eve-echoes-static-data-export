@@ -12,17 +12,15 @@ volumes:
 
 steps:
 - name: download_xapk
-  image: busybox
+  image: plugins/download
   volume:
-  - name: data
-    path: /data
   - name: tmp
     path: /tmp
   environment:
-    EVE_XAPK_URL:
+  settings:
+    source: 
       from_secret: eve_xapk_url
-  commands:
-  - wget -v "$${EVE_XAPK_URL}" -O /tmp/eve.xapk
+    destination: /tmp/eve.xapk
 
 - name: dump_static
   image: cookiemagic/evee-tools
