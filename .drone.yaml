@@ -28,7 +28,7 @@ steps:
     path: /tmp
   commands:
   - mkdir -p /data/staticdata
-  - sh /opt/cmd.sh dump_static /tmp/eve.xapk /data/staticdata
+  - sh /opt/cmd.sh dump_static "/tmp/eve.xapk" "/data/staticdata"
 
 - name: extract_npk
   image: busybox
