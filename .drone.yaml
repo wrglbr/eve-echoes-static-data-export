@@ -44,7 +44,8 @@ steps:
   - mkdir -p /tmp/eve
   - unzip /tmp/eve.xapk -d /tmp/eve
   - unzip /tmp/eve/Android/obb/com.netease.eve.en/main.57.com.netease.eve.en.obb
-  - mv /tmp/eve/Android/obb/com.netease.eve.en/main.57.com.netease.eve.en.obb/*.npk /data/npk
+  - cd /tmp/eve/Android/obb/com.netease.eve.en/main.57.com.netease.eve.en.obb
+  - find . -type f -name '*.csv' | mv {} /data/npk
 
 - name: clone_npk_tool
   image: alpine/git
