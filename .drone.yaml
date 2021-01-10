@@ -48,6 +48,9 @@ steps:
 
 - name: clone_npk_tool
   image: alpine/git
+  volumes:  
+  - name: tmp
+    path: /tmp
   commands:
   - git clone https://github.com/xforce/neox-tools.git /tmp/neox-tools
 
@@ -56,6 +59,8 @@ steps:
   volumes:
   - name: data
     path: /data
+  - name: tmp
+    path: /tmp
   commands:
   - mkdir -p /data/ktx
   - cd /tmp/neox-tools
