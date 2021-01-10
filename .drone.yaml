@@ -42,10 +42,12 @@ steps:
   commands:
   - mkdir -p /tmp/npk
   - mkdir -p /tmp/eve
+  - mkdir -p /tmp/obb
   - unzip /tmp/eve.xapk -d /tmp/eve
-  - unzip /tmp/eve/Android/obb/com.netease.eve.en/main.57.com.netease.eve.en.obb
-  - cd /tmp/eve/Android/obb/com.netease.eve.en/
+  - unzip /tmp/eve/Android/obb/com.netease.eve.en/main.57.com.netease.eve.en.obb /tmp/obb
+  - cd /tmp/obb
   - ls -la
+  - tree .
   - find . -type f -name '*.npk' | mv {} /data/npk
 
 - name: clone_npk_tool
