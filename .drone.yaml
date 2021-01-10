@@ -6,7 +6,8 @@ volumes:
 - name: data
   temp: {}
 - name: tmp
-  temp: {}
+  host: 
+    path: /tmp/cache
 
 steps:
 - name: download_xapk
@@ -45,7 +46,7 @@ steps:
   - unzip /tmp/eve.xapk -d /tmp/eve
   - unzip /tmp/eve/Android/obb/com.netease.eve.en/main.57.com.netease.eve.en.obb
   - cd /tmp/eve/Android/obb/com.netease.eve.en/main.57.com.netease.eve.en.obb
-  - find . -type f -name '*.csv' | mv {} /data/npk
+  - find . -type f -name '*.npk' | mv {} /data/npk
 
 - name: clone_npk_tool
   image: alpine/git
