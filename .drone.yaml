@@ -6,8 +6,7 @@ volumes:
 - name: data
   temp: {}
 - name: tmp
-  host: 
-    path: /tmp/cache
+  temp: {}
 
 steps:
 - name: download_xapk
@@ -77,4 +76,4 @@ steps:
     path: /data
   commands:
   - mkdir -p /data/png
-  - convert /data/ktx/* /data/png/*.png
+  - convert /data/ktx/*.ktx /data/png/*.png
